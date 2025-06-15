@@ -1,8 +1,10 @@
-import CollectionCards from "@/components/cards/collectionCards";
+"use client";
 import Footer from "@/components/headersAndFooters/footer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 export default function StorePage() {
+  const router = useRouter();
   return (
     <>
       <>
@@ -30,7 +32,9 @@ export default function StorePage() {
             alt="Image"
           />
           <div className=" flex flex-col md:flex md:flex-row gap-3 sm:flex sm:flex-col">
-            <Button>Buy Commercial</Button>
+            <Button onClick={() => router.push("/product-listing")}>
+              Buy Commercial
+            </Button>
             <Button className="opacity-50 ">Shop Commercial</Button>
           </div>
         </article>
@@ -81,7 +85,7 @@ export default function StorePage() {
         <article>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-3 px-4">
             <div className="flex flex-col col-span-1 justify-center space-y-3 items-start sm:px-28">
-              <h3 >Subscription</h3>
+              <h3>Subscription</h3>
               <span>
                 Subscribe to our weekly deliveries. No need to order multiple
                 times.

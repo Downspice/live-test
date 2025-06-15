@@ -43,9 +43,9 @@ export default function PasswordFormSecond({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-3">
         <AuthPageHeaders
-          title={"Sign Up"}
+          title={"Reset your password"}
           optionalSubtext={
-            <p>Your password should have at least 6 characters</p>
+            <p className="text-[0.6rem]">Your password should have at least 6 characters</p>
           }
         />
         <InputWrapper

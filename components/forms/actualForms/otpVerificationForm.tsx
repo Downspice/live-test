@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { resetPasswordFormSchema } from "@/lib/schemas/passwordResetFormSchema";
-import {
+ import {
   OTPFormSchema,
   OTPFormType,
 } from "@/lib/schemas/otpVerificationSchema";
@@ -30,7 +29,7 @@ export default function OTPVerification({
   const onSubmit = async (data: OTPFormType) => {
     console.log("form data", data);
     const allData = { ...resetPasswordDetails, ...data };
-    console.log("äll",allData);
+    console.log("äll", allData);
     const { otp, newPassword, email, ...rest } = allData;
     const payload = { otp, newPassword, email };
 
@@ -48,6 +47,7 @@ export default function OTPVerification({
       console.log("got this", res);
       toast(res.message);
       setIsSubmitting(false);
+      setView('success')
     } catch (err) {
       console.log("this happed", err);
       toast(err.message);
@@ -60,7 +60,16 @@ export default function OTPVerification({
   return (
     <>
       <Form {...form}>
-        <AuthPageHeaders title={"Reset Password"} />
+        <AuthPageHeaders
+          title={"Verify Your Email"}
+          optionalSubtext={
+            <p className="text-muted-foreground">
+              Verification code sent to{" "}
+              <span className="font-bold">{resetPasswordDetails.email}</span>
+              sec.admin@abccompany.org
+            </p>
+          }
+        />
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-1"

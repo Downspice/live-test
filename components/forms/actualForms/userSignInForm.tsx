@@ -10,7 +10,6 @@ import {
   userSignInFormType,
 } from "@/lib/schemas/userSignInFormScema";
 import { allFormName } from "@/app/page";
-import api from "@/lib/api-client";
 import { toast } from "sonner";
 import { useState } from "react";
 import { Loader } from "lucide-react";
@@ -66,13 +65,13 @@ export default function UserSignInForm({
             optionalSubtext={
               <span>
                 New to Microgardens?{" "}
-                <Button variant={"link"} onClick={() => setView("userSignUp")}>
+                <Button variant={"link"} onClick={() => setView('retailerSignUp')}>
                   Sign up here
                 </Button>{" "}
               </span>
             }
           />
-          <span>Enter your email and password to start shopping</span>
+          <span className="text-[0.6rem]">Enter your email and password to start shopping</span>
           <InputWrapper
             control={form.control}
             name="email"
@@ -88,15 +87,14 @@ export default function UserSignInForm({
             value={""}
           />
           <Button className="w-full" disabled={isSubmitting}>
-            Continue {isSubmitting ?? <Loader />}
+            Sign In {isSubmitting ?? <Loader />}
           </Button>
-          <span className="flex flex-row justify-center items-center">
-            {" "}
-            Already have an account?{" "}
-            <Button variant={"link"} onClick={() => setView("userSignUp")}>
-              Sign in
+          <div className="flex flex-row justify-start ">
+            
+            <Button variant={"link"} onClick={() => setView('resetpassword')}>
+              Forgot your Password ?
             </Button>
-          </span>
+          </div>
         </form>
       </Form>
     </>

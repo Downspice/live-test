@@ -53,9 +53,7 @@ export default function OTPInputWrapper({
                   {Array.from({ length: maxLength }).map((_, index) => (
                     <div key={index} className="flex items-center">
                       <InputOTPSlot index={index} className="rounded-sm"/>
-                      {index < maxLength - 1 && (
-                        <span className="mx-1 text-muted-foreground font-bold text-xl ">•</span>
-                      )}
+                       
                     </div>
                   ))}
                 </InputOTPGroup>

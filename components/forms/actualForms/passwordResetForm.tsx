@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { resetPasswordFormSchema, resetPasswordFormType } from "@/lib/schemas/passwordResetFormSchema";
+import {
+  resetPasswordFormSchema,
+  resetPasswordFormType,
+} from "@/lib/schemas/passwordResetFormSchema";
 import { allFormName } from "@/app/page";
 import { useState } from "react";
 import api from "@/lib/api-client";
@@ -13,7 +16,7 @@ import { toast } from "sonner";
 
 export default function PasswordResetForm({
   setView,
-  setResetPasswordDetails
+  setResetPasswordDetails,
 }: {
   setView: (x: allFormName) => void;
   setResetPasswordDetails: (x: resetPasswordFormType) => void;
@@ -23,10 +26,10 @@ export default function PasswordResetForm({
     resolver: zodResolver(resetPasswordFormSchema),
   });
 
-  const onSubmit = async (data:resetPasswordFormType) => {
+  const onSubmit = async (data: resetPasswordFormType) => {
     console.log("form data", data);
     setResetPasswordDetails(data);
-    setView('resetpasswordsecond');
+    setView("resetpasswordsecond");
     // try {
     //   // const res = await api.post("login", data);
     //   const res = await fetch(
@@ -69,7 +72,13 @@ export default function PasswordResetForm({
           />
           <Button className="w-full">Send me the code</Button>
           <span className="flex flex-row justify-center items-center">
-            <Button variant={"link"}>Return to Login</Button>
+            <Button
+              variant={"link"}
+              onClick={() => setView("userSignIn")}
+              type="button"
+            >
+              Return to Login
+            </Button>
           </span>
         </form>
       </Form>

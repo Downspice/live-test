@@ -20,7 +20,7 @@ export type allFormName =
   | "resetpassword"
   | "resetpasswordsecond";
 export default function Home() {
-  const [currentForm, setCurrentForm] = useState<allFormName>("resetpassword");
+  const [currentForm, setCurrentForm] = useState<allFormName>("success");
   const [emailAndPassword, setEmailAndPassword] = useState({
     email: "",
     password: "",

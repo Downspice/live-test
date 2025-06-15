@@ -87,7 +87,7 @@ export default function RetailSignUpForm({
         <p className="flex flex-row justify-center items-center">
           {" "}
           Already have an account?{" "}
-          <Button variant={"link"} onClick={() => setView("userSignUp")}>
+          <Button variant={"link"} onClick={() => setView('userSignIn')}>
             Sign in
           </Button>
         </p>
