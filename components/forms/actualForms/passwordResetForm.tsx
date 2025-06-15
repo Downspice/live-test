@@ -10,9 +10,7 @@ import {
   resetPasswordFormType,
 } from "@/lib/schemas/passwordResetFormSchema";
 import { allFormName } from "@/app/page";
-import { useState } from "react";
-import api from "@/lib/api-client";
-import { toast } from "sonner";
+import { useState } from "react"; 
 
 export default function PasswordResetForm({
   setView,
@@ -30,22 +28,7 @@ export default function PasswordResetForm({
     console.log("form data", data);
     setResetPasswordDetails(data);
     setView("resetpasswordsecond");
-    // try {
-    //   // const res = await api.post("login", data);
-    //   const res = await fetch(
-    //     "https://live-coding-test.onrender.com/auth/login",
-    //     { method: "POST", body: data }
-    //   );
-    //   console.log("got this", res);
-    //   toast(res.message);
-    //   setIsSubmitting(false);
-    // } catch (err) {
-    //   console.log("this happed", err);
-    //   toast(err.message);
-    //   setIsSubmitting(false);
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
+ 
   };
   return (
     <>

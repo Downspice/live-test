@@ -7,7 +7,6 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputWrapper from "../wrappers/InputWrapper";
-import z from "zod";
 import AuthPageHeaders from "@/components/authHeaders/authHeaders";
 import { Button } from "@/components/ui/button";
 import { allFormName } from "@/app/page";
@@ -34,9 +33,9 @@ export default function RetailSignUpForm({
   const hasUppercase = /[A-Z]/.test(password);
   const hasNumberOrSpecial = /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
 
-  const onSubmit = (data:retailSignUpFormType) => {
+  const onSubmit = (data: retailSignUpFormType) => {
     console.log("form data", data);
-    setInitialData(data)
+    setInitialData(data);
     setView("userSignUp");
   };
   return (
@@ -83,11 +82,11 @@ export default function RetailSignUpForm({
           type={"text"}
           value={""}
         />
-        <Button className="w-full" >Continue</Button>
+        <Button className="w-full">Continue</Button>
         <p className="flex flex-row justify-center items-center">
           {" "}
           Already have an account?{" "}
-          <Button variant={"link"} onClick={() => setView('userSignIn')}>
+          <Button variant={"link"} onClick={() => setView("userSignIn")}>
             Sign in
           </Button>
         </p>

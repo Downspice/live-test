@@ -1,13 +1,8 @@
 "use client";
 import { Form } from "@/components/ui/form";
-import {
-  retailSignUpFormSchema,
-  retailSignUpFormType,
-} from "@/lib/schemas/retailSignUpFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputWrapper from "../wrappers/InputWrapper";
-import z from "zod";
 import AuthPageHeaders from "@/components/authHeaders/authHeaders";
 import { Button } from "@/components/ui/button";
 import { allFormName } from "@/app/page";

@@ -4,8 +4,7 @@ import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputWrapper from "../wrappers/InputWrapper";
-import z from "zod";
-import AuthPageHeaders from "@/components/authHeaders/authHeaders";
+ import AuthPageHeaders from "@/components/authHeaders/authHeaders";
 import { Button } from "@/components/ui/button";
 import {
   userSignUpFormSchema,
@@ -13,9 +12,9 @@ import {
 } from "@/lib/schemas/userSignUpFormSchema";
 import { allFormName } from "@/app/page";
 import { retailSignUpFormType } from "@/lib/schemas/retailSignUpFormSchema";
-import api from "@/lib/api-client";
-import { useState } from "react";
+ import { useState } from "react";
 import { LoaderCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function UserSignUpForm({
   setView,
@@ -24,6 +23,7 @@ export default function UserSignUpForm({
   setView: (x: allFormName) => void;
   emailPassword: retailSignUpFormType;
 }) {
+    const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm({
     resolver: zodResolver(userSignUpFormSchema),
@@ -110,7 +110,7 @@ export default function UserSignUpForm({
           Continue {isSubmitting ?? <LoaderCircle />}
         </Button>
         <span className="flex flex-row justify-center items-center">
-          <Button variant={"link"}>I will do this later</Button>
+          <Button variant={"link"}onClick={() => router.push("/store")} >I will do this later</Button>
         </span>
       </form>
     </Form>

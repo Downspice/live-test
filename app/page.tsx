@@ -1,5 +1,4 @@
 "use client";
-import AuthPageHeaders from "@/components/authHeaders/authHeaders";
 import OTPVerification from "@/components/forms/actualForms/otpVerificationForm";
 import PasswordFormSecond from "@/components/forms/actualForms/passwordFormSecond";
 import PasswordResetForm from "@/components/forms/actualForms/passwordResetForm";
@@ -20,7 +19,7 @@ export type allFormName =
   | "resetpassword"
   | "resetpasswordsecond";
 export default function Home() {
-  const [currentForm, setCurrentForm] = useState<allFormName>("success");
+  const [currentForm, setCurrentForm] = useState<allFormName>("retailerSignUp");
   const [emailAndPassword, setEmailAndPassword] = useState({
     email: "",
     password: "",
@@ -28,9 +27,9 @@ export default function Home() {
   });
   const [resetPasswordDetails, setResetAllPasswordDetails] = useState({});
 
-    const setResetPasswordDetails=(data:any)=>{
-  setResetAllPasswordDetails({...resetPasswordDetails,...data})
-    }
+  const setResetPasswordDetails = (data: any) => {
+    setResetAllPasswordDetails({ ...resetPasswordDetails, ...data });
+  };
 
   const setCurrentView = (formName: allFormName) => {
     console.log(formName);
@@ -88,8 +87,9 @@ export default function Home() {
         )}
 
         {currentForm === "OTP" ? (
-          <OTPVerification setView={(e) => setCurrentView(e)} 
-          resetPasswordDetails={resetPasswordDetails}
+          <OTPVerification
+            setView={(e) => setCurrentView(e)}
+            resetPasswordDetails={resetPasswordDetails}
           />
         ) : (
           ""
